@@ -1,0 +1,197 @@
+# Configure Rolls
+rollFormula = "2d6"
+statToggle = "Locked"
+
+# Define roll result ranges.
+[rollResults]
+    [rollResults.failure]
+        range = "6-"
+        label = "Complications..."
+    [rollResults.partial]
+        range = "7-9"
+        label = "Partial success"
+    [rollResults.success]
+        range = "10+"
+        label = "Success!"
+
+########################################
+## CHARACTERS ##########################
+########################################
+# Define the character group.
+[character]
+
+    # Define stats.
+    [character.stats]
+        volatile = "Volatile"
+        calculating = "Calculating"
+        slick = "Slick"
+        stalwart = "Stalwart"
+        alien = "Alien"
+
+    # Define attributes.
+    [character.attributesTop]
+    # Leaving blank because I think the default layout is ugly
+
+    # Define sidebar details.
+    [character.attributesLeft]
+        [character.attributesLeft.advances]
+            type = "Xp"
+            label = "Advances"
+            max = 5
+        [character.attributesLeft.conditions]
+            type = "ListMany"
+            label = "Harm"
+            condition = true
+            description = "Choose all that apply:"
+            options = [
+                "Just a scratch",
+                "I'm rattled",
+                "I'm hurt bad",
+                "I'm knocked out",
+                "I can't go on"
+            ]
+        [character.attributesLeft.stress]
+            type = "Xp"
+            label = "Stress"
+            max = 5
+        [character.attributesLeft.look]
+            type = "LongText"
+            label = "Look"
+        [character.attributesLeft.attitude]
+            type = "LongText"
+            label = "Attitude"
+        [character.attributesLeft.influence]
+            type = "LongText"
+            label = "Influence"
+
+    # Define groups for moves.
+    [character.moveTypes]
+        combat = "Combat Moves"
+        action = "Action Moves"
+        influence = "Influence Moves"
+        investigation = "Investigation Moves"
+        exploration = "Exploration Moves"
+        playbook = "Playbook Moves"
+
+# Define groups for equipment.
+
+########################################
+## SHIPS ###############################
+########################################
+# Uncomment the ship section you will be using.
+
+[ship]
+    [ship.atributesTop]
+        ## PREDATOR ###########################
+        [ship.attributesTop.nemesis]
+            type = "LongText"
+            label = "Nemesis"
+        [ship.attributesTop.feud]
+            type = "Clock"
+            label = "Feud"
+            max = 5
+        ## /PREDATOR ##########################
+        ## SMUGGLER ###########################
+        #[ship.attributesTop.payments]
+        #    type = "Text"
+        #    label = "Payments"
+        #[ship.attributesTop.creditor]
+        #    type = "LongText"
+        #    label = "Creditor"
+        #[ship.attributesTop.disposition]
+        #    type = "Text"
+        #    label = "Disposition"
+        #[ship.attributesTop.debt]
+        #    type = "Clock"
+        #    label = "Debt"
+        #    max = 5
+        ### /SMUGGLER ##########################
+        ### VANGUARD ###########################
+        #[ship.attributesTop.duty]
+        #    type = "Clock"
+        #    label = "Duty"
+        #    max = 5
+        #[ship.attributesTop.rank]
+        #    type = "Text"
+        #    label = "Rank"
+        #[ship.attributesTop.organization]
+        #    type = "LongText"
+        #    label = "Organization"
+        ## /VANGUARD ###########################
+        ## MARAUDER ############################
+        #[ship.attributesTop.reputation]
+        #    type = "LongText"
+        #    label = "Reputation"
+        #[ship.attributesTop.crime]
+        #    type = "Clock"
+        #    label = "Crime"
+        #    max = 5
+        #[ship.attributesTop.infamous]
+        #    type = "Checkbox"
+        #    label = "Infamous"
+        ## /MARAUDER ###########################
+    [ship.attributesLeft]
+        [ship.attributesLeft.wereHit]
+            type = "ListMany"
+            label = "We're Hit"
+            description = "Choose all the apply:"
+            options = [
+                "Superficial Damage",
+                "Direct Hit",
+                "Hull Breach",
+                "Adrift"
+            ]
+        [ship.attributesLeft.maintenance]
+            type = "Clock"
+            label = "Maintenance"
+            description = "Choose all the apply:"
+            default = 0
+            max = 4
+        [ship.attributesLeft.maintenancePastDue]
+            type = "Checkbox"
+            label = "Maintenance Past Due"
+    # Define groups for moves.
+    [ship.moveTypes]
+        ship = "Ship Moves"
+    [ship.equipmentTypes]
+        upgrades_and_modules = "Upgrades & Modules"
+        bays_and_crew = "Bays & Crew"
+
+
+########################################
+## NPCS ################################
+########################################
+# Define stats.
+[npc]
+# Define attributes.
+    [npc.attributesTop]
+        [npc.attributesTop.realName]
+            type = "Text"
+            label = "Real Name"
+
+    [npc.attributesLeft]
+        [npc.attributesLeft.conditions]
+            type = "ListMany"
+            label = "Conditions"
+            description = "Choose all that apply:"
+            options = [
+                "Afraid",
+                "Angry",
+                "Guilty",
+                "Hopeless",
+                "Insecure"
+            ]
+        [npc.attributesLeft.drive]
+            type = "LongText"
+            label = "Drive"
+        [npc.attributesLeft.abilities]
+            type = "LongText"
+            label = "Abilities"
+        [npc.attributesLeft.generation]
+            type = "Text"
+            label = "Generation"
+
+    # Define logical groups for moves.
+    [npc.moveTypes]
+        villain = "Villain Moves"
+        condition = "Condition Moves"
